@@ -134,6 +134,11 @@ const newEmail = async () => {
   }
 };
 
+const logout = () => {
+    jwt.value = '';
+    location.reload()
+};
+
 const getAttachments = async (attachment_id) => {
   try {
     const res = await api.fetch(
