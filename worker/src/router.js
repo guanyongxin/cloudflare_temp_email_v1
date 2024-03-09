@@ -132,7 +132,7 @@ api.get('/api/new_address', async (c) => {
         }
     } catch (e) {
         if (e.message && e.message.includes("UNIQUE")) {
-            return c.text("Please retry a new address", 400)
+            //return c.text("Please retry a new address", 400)
         }
         return c.text("Failed to create address", 500)
     }
