@@ -128,7 +128,7 @@ const newEmail = async () => {
     await api.getSettings();
     await refresh();
     showNewEmail.value = false;
-    showPassword.value = true;
+    showPassword.value = false;
   } catch (error) {
     message.error(error.message || "error");
   }
