@@ -219,7 +219,7 @@ onMounted(async () => {
                   ID: {{ row.id }}
                 </n-tag>
                 <n-tag type="info">
-                  ID: {{ row.created_at }}
+                  TIME: {{ row.created_at }}
                 </n-tag>
                 <n-button v-if="row.attachment_id" size="small" tertiary type="info"
                   @click="getAttachments(row.attachment_id)">
