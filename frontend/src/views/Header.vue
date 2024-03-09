@@ -195,30 +195,6 @@ const menuOptionsMobile = [
                 </n-button>
             </div>
         </n-layout-header>
-        <n-modal v-model:show="showLogin" preset="dialog" title="Dialog">
-            <template #header>
-                <div>{{ t('login') }}</div>
-            </template>
-            <n-input v-model:value="password" type="textarea" :autosize="{
-                minRows: 3
-            }" />
-            <template #action>
-                <n-button @click="login" size="small" tertiary round type="primary">
-                    {{ t('login') }}
-                </n-button>
-            </template>
-        </n-modal>
-        <n-modal v-model:show="showLogout" preset="dialog" title="Dialog">
-            <template #header>
-                <div>{{ t('logout') }}</div>
-            </template>
-            <p>{{ t('logoutConfirm') }}</p>
-            <template #action>
-                <n-button @click="logout" size="small" tertiary round type="primary">
-                    {{ t('logout') }}
-                </n-button>
-            </template>
-        </n-modal>
         <n-modal v-model:show="showAuth" :closable="false" :closeOnEsc="false" :maskClosable="false" preset="dialog"
             title="Dialog">
             <template #header>
