@@ -85,31 +85,6 @@ const menuOptions = computed(() => [
             {
                 tertiary: true,
                 ghost: true,
-                onClick: () => router.push('/')
-            },
-            { default: () => t('home') }
-        ),
-        key: "home"
-    },
-    {
-        label: () => h(
-            NButton,
-            {
-                tertiary: true,
-                ghost: true,
-                onClick: () => router.push('/admin')
-            },
-            { default: () => "Admin" }
-        ),
-        show: !!adminAuth.value,
-        key: "admin"
-    },
-    {
-        label: () => h(
-            NButton,
-            {
-                tertiary: true,
-                ghost: true,
                 onClick: () => localeCache.value == 'zh' ? changeLocale('en') : changeLocale('zh')
             },
             {
@@ -117,44 +92,6 @@ const menuOptions = computed(() => [
             }
         ),
         key: "lang"
-    },
-    {
-        label: () => h(
-            NButton,
-            {
-                tertiary: true,
-                ghost: true,
-                onClick: () => { showLogin.value = true }
-            },
-            { default: () => t('login') }
-        ),
-        show: !jwt.value,
-        key: "login"
-    },
-    {
-        label: () => h(
-            NButton,
-            {
-                tertiary: true,
-                ghost: true,
-                onClick: () => { showLogout.value = true }
-            },
-            { default: () => t('logout') }
-        ),
-        show: !!jwt.value,
-        key: "logout"
-    },
-    {
-        label: () => h(
-            NButton,
-            {
-                tertiary: true,
-                ghost: true,
-                onClick: () => { router.push('/settings') }
-            },
-            { default: () => t('settings') }
-        ),
-        key: "settings"
     }
 ]);
 
