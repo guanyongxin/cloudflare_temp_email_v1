@@ -186,7 +186,7 @@ onMounted(async () => {
           {{ t('pleaseGetNewEmail') }}
         </span>
       </n-alert>
-      <n-button v-if="settings.address" class="center" @click="showPassword = true" tertiary round type="primary">
+      <n-button v-if="settings.address" class="center" @click="logout" tertiary round type="primary">
         {{ t('showPassword') }}
       </n-button>
       <n-button v-else class="center" @click="showNewEmail = true" tertiary round type="primary">
