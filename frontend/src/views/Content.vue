@@ -57,7 +57,7 @@ const { t } = useI18n({
       cancel: '取消',
       ok: '确定',
       copy: '复制',
-      showPassword: '获取新邮箱',
+      showPassword: '注销邮箱',
       autoRefresh: '自动刷新',
       refresh: '刷新',
       password: '密码',
