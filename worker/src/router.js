@@ -187,6 +187,19 @@ api.delete('/admin/delete_address/:id', async (c) => {
     })
 })
 
+api.delete('/admin/delete_address_info/:address', async (c) => {
+    const { address } = c.req.param();
+    const { success } = await c.env.DB.prepare(
+        `DELETE FROM mails WHERE address = ? `
+    ).bind(address).run();
+    if (!success) {
+        return c.text("Failed to delete address", 500)
+    }
+    return c.json({
+        success: success
+    })
+})
+
 api.get('/admin/show_password/:id', async (c) => {
     const { id } = c.req.param();
     const name = await c.env.DB.prepare(
