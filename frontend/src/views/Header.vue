@@ -63,7 +63,7 @@ const { t } = useI18n({
             home: 'Home',
         },
         zh: {
-            title: 'Cloudflare 临时邮件',
+            title: 'Cloudflare 临时邮箱',
             dark: '暗色',
             light: '亮色',
             login: '登录',
