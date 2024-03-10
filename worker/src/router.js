@@ -154,12 +154,13 @@ api.get('/api/del_address_info', async (c) => {
         const { success } = await c.env.DB.prepare(
             `delete from mails where address = ? `
         ).bind(emailAddress).run();
-        if (!success) {
-            return c.text("Failed to create address", 500)
+        if (success) {
+            return c.text("success del address_info", 200)
         }
-    } catch (e) {        
+    } catch (e) {      
+			      return c.text("Failed Error address_info", 500)
         }
-        return c.text("Failed to create address", 500) 
+        return c.text("Failed to del address_info", 500) 
 })
 
 api.get('/admin/address', async (c) => {
