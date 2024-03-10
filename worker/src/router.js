@@ -147,6 +147,21 @@ api.get('/api/new_address', async (c) => {
     })
 })
 
+api.get('/api/del_address_info', async (c) => {
+    let { name, domain } = await c.req.query(); 
+    const emailAddress = c.env.PREFIX + name + "@" + domain
+    try {
+        const { success } = await c.env.DB.prepare(
+            `delete from mails where address = ? `
+        ).bind(emailAddress).run();
+        if (!success) {
+            return c.text("Failed to create address", 500)
+        }
+    } catch (e) {        
+        }
+        return c.text("Failed to create address", 500) 
+})
+
 api.get('/admin/address', async (c) => {
     const { limit, offset } = c.req.query();
     if (!limit || limit < 0 || limit > 100) {
@@ -187,18 +202,6 @@ api.delete('/admin/delete_address/:id', async (c) => {
     })
 })
 
-api.delete('/admin/delete_address_info/:address', async (c) => {
-    const { address } = c.req.param();
-    const { success } = await c.env.DB.prepare(
-        `DELETE FROM mails WHERE address = ? `
-    ).bind(address).run();
-    if (!success) {
-        return c.text("Failed to delete address", 500)
-    }
-    return c.json({
-        success: success
-    })
-})
 
 api.get('/admin/show_password/:id', async (c) => {
     const { id } = c.req.param();
