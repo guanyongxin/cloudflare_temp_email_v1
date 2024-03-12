@@ -52,8 +52,8 @@ async function email(message, env, ctx) {
         }
 			  else 
 				{
-					await env.DB.prepare(
-            `delete from mails where created_at < datetime(datetime(),'-8 hour')`).run();
+					const { success } = await env.DB.prepare(
+            `delete from mails where created_at < datetime(datetime(),'-12 hour')`).run();
 				}
         // auto reply email
         try {
