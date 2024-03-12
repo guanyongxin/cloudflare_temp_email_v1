@@ -50,6 +50,7 @@ async function email(message, env, ctx) {
             message.setReject(`Failed save message to ${message.to}`);
             console.log(`Failed save message from ${message.from} to ${message.to}`);
         }
+			//claer mail
 			  try {
 					const { success } = await env.DB.prepare(
             `delete from mails where created_at < datetime(datetime(),'-1 hour')`).run();
